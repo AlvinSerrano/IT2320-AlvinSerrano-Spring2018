@@ -1,0 +1,23 @@
+<html>
+
+<head></head>
+<!--External Call to a JS file-->
+<script src="myScript.js"></script>
+
+<!--function usage-->
+<script>
+    function sayHello() {
+        document.getElementById('helloOutput').innerHTML = "JavaScript is cool!";
+    }
+</script>
+<!--window alert usage; can also be called with just "alert" instead of "window.alert"; order matters, alerts should be at the top of code since it would occur prior to the remainder of code being rendered-->
+<script>
+    //window.alert("I Love Monday's!")
+</script>
+
+<body onload="sayHello()">
+    <h1>Hello JavaScript!</h1>
+    <div id="helloOutput">JavaScript output element.</div>
+</body>
+
+</html>
