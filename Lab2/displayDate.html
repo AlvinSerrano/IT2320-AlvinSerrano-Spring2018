@@ -1,0 +1,25 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <input type="button" value="Get Date" onclick="myFunction()">
+        <br><br>
+        Date Format 1 = <span id="format1"></span> <br>
+        Date Format 2 =  <span id="format2"></span><br>
+        Date Format 3 = <span id="format3"></span>
+
+
+        <script>
+            function myFunction() {
+                
+                var format1 = new Date;
+                document.getElementById('format1').innerHTML = format1.toUTCString();
+                var format2 = new Date;
+                document.getElementById('format2').innerHTML = format2.toString();
+                var format3 = new Date;
+                document.getElementById('format3').innerHTML = format3.toDateString();
+            }
+            </script>
+    </body>
+</html>

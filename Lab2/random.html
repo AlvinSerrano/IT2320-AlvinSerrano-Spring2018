@@ -1,0 +1,27 @@
+<html>
+    <head>
+        Random Number Generator
+    </head>
+    <body>
+    <p>Click the button to display an array of random number between 1 and 100.</p>
+
+    <button onclick="myFunction()">Click Me</button>
+    <p id="random"></p>
+
+    <script>
+        function myFunction() {
+            var x, text, numberRan;
+            x = Math.floor((Math.random() * 101) + 1);
+            numberRan = x
+            text = "<ul>";
+
+            for (numberRan > 0; numberRan < 101; numberRan++){
+                text += "<li>" + [numberRan] + "</li>";
+            }
+           document.getElementById("random").innerHTML = text;
+
+        }
+    </script>
+    </body>
+</html>
+

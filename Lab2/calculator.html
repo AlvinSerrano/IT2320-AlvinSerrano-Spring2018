@@ -1,0 +1,28 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        x = <input type="text" id="x"><br>
+        y = <input type="text" id="y"><br><br>
+        <input type="button" value="Calculate" onclick="calculate()">
+        <br><br>
+        (y2) * (3 -x) = <span id="output1"></span> <br>
+        x % 2 =  <span id="output2"></span><br>
+        y / x = <span id="output3"></span>
+
+
+        <script>
+            function calculate() {
+                var x = document.getElementById('x').value;
+                var y = document.getElementById('y').value;
+                var output1 = (y * 2) * (3 - x);
+                document.getElementById('output1').innerHTML = output1;
+                var output2 = x % 2;
+                document.getElementById('output2').innerHTML = output2;
+                var output3 = y / x;
+                document.getElementById('output3').innerHTML = output3;
+            }
+            </script>
+    </body>
+<html>
