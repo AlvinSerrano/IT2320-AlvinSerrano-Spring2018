@@ -12,16 +12,21 @@
         var newAmount = document.getElementById('newAmount').value;
 
         // 1. Add the value of newAmount to the running total totalAmount. Tip: Use parseFloat()
-
+        for(i = 0, i < newAmount.length; i++;)
+        {
+            if(parseFloat(newAmount[i].value))
+                totalAmount += parseFloat(newAmount[i].value);
+        }
     
         var itemDescription = document.getElementById('newItem').value;
         items = items.replace("</table>", "");
-
+        
         // 2. Concatenate the value of Item Description into the table. Change item to the value of itemDescription
         //items += "<tr><td>Item</td><td>$" + newAmount + "</td></tr>"
-        items += "<tr><td>item</td><td>$" + parseFloat(newAmount).toFixed(2) + "</td></tr>"
+        items += "<tr><td>itemDescription.newItem</td><td>$" + parseFloat(newAmount).toFixed(2) + "</td></tr>"
         items += "</table>";
-        
+
+               
         // Display items in element with id="listOfElements"
         document.getElementById('listOfItems').innerHTML = items;
 
