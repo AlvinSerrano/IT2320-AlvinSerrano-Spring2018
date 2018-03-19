@@ -1,0 +1,40 @@
+<html>
+<html>
+    <head>
+        <style>
+        .ancestors * { 
+        display: block;
+        border: 2px solid lightgrey;
+        color: lightgrey;
+        padding: 5px;
+        margin: 15px;
+        }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        
+        <script>
+            $(document).ready(function(){
+                $("span").parent().css({"color": "red", "border": "2px solid red"});
+            });
+        </script>
+    </head>
+<body class="ancestors">body (great-great-grandparent)
+
+<p>This is a paragraph.
+    <div id="div1">Div 1</div>
+    <div id="div2">Div 2
+        <span>Span 1</span>
+        <span>Span 2</span>
+        <span>Span 3</span>
+    </div>
+
+    <div id="div3">Div 3</div>
+    <div id="div4">Div 4</div>
+    <div id="div5">Div 5</div>
+    <div id="div6">Div 6</div>
+</p>
+<p>This is a paragraph.</p>
+<p>This is a paragraph.</p>
+
+</body>
+</html>
