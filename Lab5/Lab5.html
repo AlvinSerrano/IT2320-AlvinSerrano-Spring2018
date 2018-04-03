@@ -5,10 +5,25 @@
 <script>
 
 // 1. use eq to retrieve the paragraph with index 1. Highlight it by setting the CSS background-color to yellow.
-
-// 2. if the user clicks the submit button and the value of favoriteFood is empty, display an error message s`tating "You must enter a favorite food" in the span following favoriteFood using the next() method.
-
+$(document).ready(function(){
+    $("p").eq(1).css("background-color", "yellow");
+});
+// 2. if the user clicks the submit button and the value of favoriteFood is empty, display an error message stating "You must enter a favorite food" in the span following favoriteFood using the next() method.
+/*$(document).ready(function(){
+    $("button").click(function(){
+        $("favoriteFood").load("demo_test.txt", function(responseTxt, statusTxt, xhr){
+            if(statusTxt == "success")
+                alert("External content loaded successfully!");
+            if(statusTxt == "error")
+                alert("You must enter a favorite food");
+        });
+    });
+*/
 // 3. retrieve the first paragraph element and use the parent() method to modify the appearance of the h1 element.
+$(document).ready(function(){
+    $("p").first();
+   // $("p").parent().css({"color": "red"});
+})
 
 </script>
 </head>
