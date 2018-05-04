@@ -1,0 +1,60 @@
+1.	In order to open developer tools in most browsers, we can use what function key? (1 point)
+            F12
+2.	We can view the values of the variables defined in our JavaScript code using Developer Tools in Chrome.  Show an example (paste an image) (2 points).
+        
+3.	In the following example, is arearect a local or global variable given that we have not declared strict mode?   Explain two ways that we could fix this.  Read the example carefully! (3 points)
+var areaRectangle = function (width, height) {
+    var areaRect = width * height;
+    arearect = parseFloat(areaRect.toFixed(2));
+    return areaRect;
+}
+
+4.	Use the console to log what will be output to the command prompt along with the index that being used to access each element.  Should how you corrected the problem by outputting only elements that have been assigned values (4 points).
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+
+<script>
+var cars = ["Ford", "Chevy", "GMC"];
+var text = "";
+var i;
+for (i = 0; i <= 3; i++) {
+    text += cars[i] + "<br>";
+}
+
+document.getElementById("demo").innerHTML = text;
+</script>
+
+</body>
+</html>
+
+5.	In the following code, the function assigned to areaRectangle is defined within a function.  Move the function to the appropriate place.  Show in the Call Stack how the method is now available.  Use a BreakPoint to demonstrate the method running correctly.  For credit, paste a screenshot showing the method running with a Break Point…the method name should appear in the Call Stack (5 points).
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script>
+
+        function getArea() {
+            document.getElementById("area").innerHTML = areaRectangle(20, 30);
+        }
+        window.onload = new function() {
+			var areaRectangle = function (width, height) {
+				var areaRect = width * height;
+				arearect = parseFloat(areaRect.toFixed(2));
+				return areaRect;
+			}
+        }
+    </script>
+</head>
+<body>
+    <input type="button" onclick="getArea()" value="Get Area" />
+    <div id="area"> </div>
+</body>
+</html>
+

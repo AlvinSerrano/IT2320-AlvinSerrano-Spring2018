@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+    <meta charset="utf-8" />
+
+    <title>Calculate receipt</title>
+
+    <style>
+
+        * { font-family: "Trebuchet MS", Arial, Helvetica, sans-serif; }
+
+        main { float: left; }
+
+        section { float: left; padding-left: 40px; }
+
+        #receiptItems {  border-collapse: collapse; width: 100%; }
+
+        #receiptItems td, #customers th { border: 1px solid #ddd; padding: 8px; }
+
+        #receiptItems tr:nth-child(even){background-color: #f2f2f2;}
+
+        #receiptItems tr:hover {background-color: #ddd;}
+
+        #receiptItems th { padding-top: 12px; padding-bottom: 12px; text-align: left; background-color: #4CAF50; color: white; }
+
+    </style>
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+    <script type="text/babel">
+
+        var items = [];
+
+        var subtotal = 0;
+
+        var tax = 0;
+
+        var total = 0;
+
+
+
+        function calculateTotals(groceryItems) {
+
+            subtotal = 0;
+
+
+
+            for (var index in groceryItems) {
+
+                subtotal += groceryItems[index].cost * groceryItems[index].quantity;
+
+            }
+
+
+
+            // To Do 3: Modify the output for subtotal, total, and tax so that it calls a function that returns toFixed(2) values
+
+            //         Note - you can have a separate function for each or one function.  Either will work.
+
+            //         You should replace code in the JSX element to call this method(s)
+
+            tax = parseFloat(subtotal) * .07;
+
+            total = parseFloat(subtotal) + tax;
+
+        }
+
+
+
+        function addItem() {
+
+            items.push(
+
+                {
+
+                 item : document.getElementById('item').value,
+
+                 cost : document.getElementById('itemCost').value,
+
+                 quantity : document.getElementById('quantity').value 
+
+                }
+
+            );
+
+            
+
+            const itemsList = items.map((item) =>
+
+                (
+
+                   // To Do 1: Add code to render a row for each item
+
+                   <tr><td>item</td></tr>
+
+                )
+
+            );
+
+
+
+            calculateTotals(items);
+
+
+
+            const element = (
+
+            <main>
+
+            <section>
+
+                <h2>Add New Item</h2>
+
+                <label for="item">Item</label><br />
+
+                <input type="text" name="item" id="item" autoFocus="true" /><br /><br />
+
+                <label for="itemCost">Cost</label><br />
+
+                <input type="text" name="itemCost" id="itemCost" /><br /><br />
+
+                <label for="quantity">Quantity</label><br />
+
+                <input type="text" name="quantity" id="quantity" /><br /><br />
+
+                <input type="button" id="addItem" value="Add Item" onClick={addItem} />
+
+            </section>
+
+            <section id="receipt">
+
+                <h2>Receipt</h2>
+
+                <table id="receiptItems">
+
+                    <tr>
+
+                        <td>Item Name</td>
+
+                        <td>Cost</td>
+
+                        <td>Quantity</td>
+
+                        <td>Total</td>
+
+                    </tr>
+
+                    {itemsList}
+
+                </table>
+
+                <h4 id="subtotal">Subtotal (before tax): ${subtotal}</h4>
+
+                To Do 2: Display total and tax (remove this comment when done)
+
+                <h4 id="tax">Tax: $</h4>
+
+                <h4 id="total">Total (with tax): $</h4>
+
+                <span id="tips">
+
+                    <b>Example Tips:</b>
+
+                    15%: $3.00,
+
+                    18%: $3.23,
+
+                    20%: $4.04
+
+                </span>
+
+            </section>
+
+            </main>
+
+            );
+
+
+
+            ReactDOM.render(
+
+                element,
+
+                document.getElementById('root')
+
+            );
+
+        }
+
+
+
+        const element = (
+
+            <main>
+
+            <section>
+
+                <h2>Add New Item</h2>
+
+                <label for="item">Item</label><br />
+
+                <input type="text" name="item" id="item" autoFocus="true" /><br /><br />
+
+                <label for="itemCost">Cost</label><br />
+
+                <input type="text" name="itemCost" id="itemCost" /><br /><br />
+
+                <label for="quantity">Quantity</label><br />
+
+                <input type="text" name="quantity" id="quantity" /><br /><br />
+
+                <input type="button" id="addItem" value="Add Item" onClick={addItem} />
+
+            </section>
+
+            </main>
+
+            );
+
+
+
+        ReactDOM.render(
+
+            element,
+
+            document.getElementById('root')
+
+        );
+
+</script>
+
+</head>
+
+<body>
+
+    <div id="root"></div>
+
+</body>
+
+</html>
